@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">kotlin-vk-sdk-template</string>
+    <string name="login_hello">Добро пожаловать в \"Друзья ВК\" \nПожалуйста нажмите кнопку \"Войти\", что бы увидеть
+        Ваших друзей
+    </string>
+    <string name="login_enter">Войти</string>
+</resources>
