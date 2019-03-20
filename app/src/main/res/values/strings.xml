@@ -8,4 +8,6 @@
     <string name="no_friends_item">У Вас нет друзей!</string>
     <string name="login_error_credentials">Ошибка при логине в ВК</string>
     <string name="friend_no_city">Город не указан</string>
+    <string name="friends_error_loading">Ошибка при загрузке друзей</string>
+    <integer name="com_vk_sdk_AppId">6906139</integer>
 </resources>

@@ -14,11 +14,29 @@ import de.hdodenhof.circleimageview.CircleImageView
 
 class FriendsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private var mSourceList: ArrayList<FriendModel> = ArrayList()
     private var mFriendsList: ArrayList<FriendModel> = ArrayList()
 
+
+
     fun setupFriends(friendList: ArrayList<FriendModel>) {
+        mSourceList.clear()
+        mSourceList.addAll(friendList)
+        filter(query = "")
+
+    }
+
+    fun filter(query: String) {
         mFriendsList.clear()
-        mFriendsList.addAll(friendList)
+        mSourceList.forEach ({
+            if (it._name.contains(query, ignoreCase = true) || it.surname.contains(query, ignoreCase = true)) {
+                mFriendsList.add(it)
+            } else {
+                it.city?.let { city -> if (city.contains(query, ignoreCase = true)) {
+                mFriendsList.add(it)
+                }}
+            }
+        })
         notifyDataSetChanged()
     }
 
@@ -37,6 +55,8 @@ class FriendsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             holder.bind(friendModel = mFriendsList[position])
         }
     }
+
+
 
     class FriendsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
 

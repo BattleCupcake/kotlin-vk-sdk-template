@@ -13,7 +13,7 @@ class FriendsPresenter: MvpPresenter<FriendsView>() {
 
     fun loadFriends(){
         viewState.startLoading()
-        FriendsProvider(presenter = this).testLoadFriends(hasFriends = false)
+        FriendsProvider(presenter = this).loadFriends()
     }
 
     fun friendsLoaded(friendsList: ArrayList<FriendModel>) {
@@ -24,5 +24,8 @@ class FriendsPresenter: MvpPresenter<FriendsView>() {
         } else {
             viewState.setupFriendsList(friendsList = friendsList)
         }
+    }
+    fun showError(textResource: Int) {
+        viewState.showError(textResource = textResource)
     }
 }
